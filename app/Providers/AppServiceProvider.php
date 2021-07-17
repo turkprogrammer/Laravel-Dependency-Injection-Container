@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Contracts\Video\VideoHosting;
+use App\Services\Video\Youtube;
+use App\Services\Video\Vimeo;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //определяем реализации интерфейса
+        $this->app->bind(VideoHosting::class, function ($app) {
+            return new Vimeo;
+        });
     }
 
     /**

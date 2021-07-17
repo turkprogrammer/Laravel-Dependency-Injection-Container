@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Video\Vimeo;
-use App\Services\Video\Youtube;
+use App\Contracts\Video\VideoHosting;
 use Illuminate\Http\Request;
 
 
 class WelcomeController extends Controller
 {
-    public function index(Vimeo $service)
+    public function index(VideoHosting $service)//внедряем интерфейс, независим от конкретной реализации
     {
         return view('di', [
             'service' => $service

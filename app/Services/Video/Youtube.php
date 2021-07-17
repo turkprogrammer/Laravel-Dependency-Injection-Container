@@ -2,20 +2,30 @@
 
 namespace App\Services\Video;
 
-class Youtube
+use App\Contracts\Video\VideoHosting;
+
+class Youtube implements VideoHosting
 {
 
     protected $random;
 
     public function __construct()
     {
-        $this->random = rand(0, 100000);
+        $this->random = 'Youtube ' . rand(0, 100000);
     }
 
     public function showMeString()
     {
         return $this->random;
     }
+    public function getVideoWidt()
+    {
+    }
+    public function getVideHeigt()
+    {
+    }
+    public function showString()
+    {
+        return $this->showMeString();
+    }
 }
-
-

@@ -10,7 +10,7 @@
 
 <body>
 
-    {{ $service->showMeRandomString() }}
+    {{ $service->showString() }}
 </body>
 
 </html>
