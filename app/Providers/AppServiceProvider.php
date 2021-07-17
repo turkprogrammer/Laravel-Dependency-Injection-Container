@@ -17,7 +17,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //определяем реализации интерфейса
-        $this->app->bind(VideoHosting::class, function ($app) {
+       // $serviceVimeo = new Vimeo();
+       // $this->app->instance(VideoHosting::class, $serviceVimeo);
+        $this->app->singleton(VideoHosting::class, function ($app) {
             return new Vimeo;
         });
     }
